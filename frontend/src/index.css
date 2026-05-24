@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#f8fafc] text-slate-800 antialiased overflow-x-hidden;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* Redefined panel utility matching the white elegant cards in the mockup */
+.glass-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0; /* border-slate-200 */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem; /* 16px */
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -8px rgba(15, 23, 42, 0.08);
+}
+
+/* Custom Scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1; /* indigo-500 */
+}
+
+/* Smooth drag and drop placeholder style */
+.kanban-column {
+  min-height: 550px;
+}
+
+/* Hardware-accelerated transitions & micro-animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hover-scale {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-scale:hover {
+  transform: translateY(-1px) scale(1.015);
+}
+
+/* ====================================================== */
+/* GLOBAL DARK MODE OVERRIDES */
+/* ====================================================== */
+
+.dark body {
+  background-color: #0b0f19 !important;
+  color: #e2e8f0 !important;
+}
+
+.dark .glass-panel {
+  background: #111827 !important; /* slate-900 */
+  border-color: #1f2937 !important; /* slate-800 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark .glass-panel-hover:hover {
+  background: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark h5, 
+.dark h6, 
+.dark .text-slate-850, 
+.dark .text-slate-800 {
+  color: #f8fafc !important; /* slate-50 */
+}
+
+.dark .text-slate-700, 
+.dark .text-slate-650, 
+.dark .text-slate-600 {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+
+.dark .text-slate-500, 
+.dark .text-slate-550, 
+.dark .text-slate-450 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
+.dark input, 
+.dark select, 
+.dark textarea {
+  background-color: #1f2937 !important;
+  color: #f8fafc !important;
+  border-color: #374151 !important;
+}
+
+.dark input::placeholder, 
+.dark textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+.dark .bg-slate-50, 
+.dark .bg-slate-100 {
+  background-color: #1f2937 !important;
+}
+
+.dark .bg-slate-50\/50, 
+.dark .bg-slate-50\/20, 
+.dark .bg-slate-50\/10,
+.dark .hover\:bg-slate-50:hover, 
+.dark .hover\:bg-slate-50\/50:hover {
+  background-color: #111827 !important;
+}
+
+.dark .border-slate-100, 
+.dark .border-slate-200 {
+  border-color: #1f2937 !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1f2937 !important;
+}
+
+/* Custom Scrollbar for dark theme */
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Fix chart tooltip background in dark mode */
+.dark .recharts-default-tooltip {
+  background-color: #111827 !important;
+  border-color: #1f2937 !important;
+}
+.dark .recharts-tooltip-label {
+  color: #f8fafc !important;
+}
